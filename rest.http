@@ -1,0 +1,21 @@
+###Testing api calls
+
+###User
+###Get New User
+GET http://localhost:8001
+
+
+### Post New User
+POST http://localhost:8001/api/v1/users
+Content-Type: application/json
+
+{
+    "name":"Kabindra",
+    "email":"a@gmail.com",
+    "password":"ss"
+}
+
+
+
+
+###Transactions
