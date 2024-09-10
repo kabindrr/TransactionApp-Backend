@@ -16,11 +16,11 @@ router.post("/", async (req, res) => {
     user?._id
       ? res.json({
           user,
-          status: "Success",
+          status: "success",
           message: "User registered successfully",
         })
       : res.json({
-          status: "Error",
+          status: "error",
           message: "User Registration Failed",
         });
   } catch (error) {
