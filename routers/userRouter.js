@@ -24,6 +24,11 @@ router.post("/", async (req, res) => {
           message: "User Registration Failed",
         });
   } catch (error) {
+    let msg = error.message;
+    if (msg.includes("E11000 duplicate key error collection")) {
+      msg =
+        "Email Address already exists please try again with different email";
+    }
     res.json({
       status: "error",
       message: error.message,
