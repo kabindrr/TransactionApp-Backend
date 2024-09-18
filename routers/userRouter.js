@@ -1,6 +1,7 @@
 import express from "express";
 import { addUser, getUser } from "../models/UserModal.js";
 import { comparePassword, hashPassword } from "../utils/bcrypt.js";
+import { Sign_Access_JWT } from "../utils/jwt.js";
 
 const router = express.Router();
 
@@ -49,13 +50,17 @@ router.post("/login", async (req, res, next) => {
     if (user?._id) {
       const isPasswordCorrect = comparePassword(password, user.password);
       if (isPasswordCorrect) {
-        user.password=undefined
+        //create token
+        const jwtToken = Sign_Access_JWT({ email: email });
+
+        user.password = undefined;
         //user authenticated
         if (email && password) {
           res.json({
             status: "success",
             message: "Login success",
             user,
+            jwtToken,
           });
           return;
         }
