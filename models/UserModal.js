@@ -8,6 +8,7 @@ export const addUser = (userObj) => {
 
 // r
 export const getUser = (email) => {
+  console.log("EMAIL", email);
   return UserSchema.findOne({ email });
 };
 

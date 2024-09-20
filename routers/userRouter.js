@@ -43,12 +43,13 @@ router.post("/login", async (req, res, next) => {
   try {
     //receive email and password
     const { email, password } = req.body;
-
     //find the user by email
     const user = await getUser(email);
     //verify the password
+
     if (user?._id) {
       const isPasswordCorrect = comparePassword(password, user.password);
+
       if (isPasswordCorrect) {
         //create token
         const jwtToken = Sign_Access_JWT({ email: email });
@@ -68,6 +69,7 @@ router.post("/login", async (req, res, next) => {
     }
 
     res.status(401).json({
+      status: "error",
       error: "Invalid email and password",
     });
 
