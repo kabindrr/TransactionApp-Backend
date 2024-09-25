@@ -2,8 +2,8 @@
 
 ###User
 ###Get New User
-GET http://localhost:8001
-
+GET http://localhost:8001/api/v1/users
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFAZ21haWwuY29tIiwiaWF0IjoxNzI3MjU4ODE3LCJleHAiOjE3MjcyNTg4Nzd9.n9vfeAV54ijiKzYa1tlpleHVen-C3Hl6vtazczEoE98
 
 ### Post New User
 POST http://localhost:8001/api/v1/users/login
