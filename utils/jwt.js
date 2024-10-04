@@ -2,7 +2,7 @@ import JWT from "jsonwebtoken";
 
 export const Sign_Access_JWT = (obj) => {
   const token = JWT.sign(obj, process.env.Access_Secret_Key, {
-    expiresIn: "1m",
+    expiresIn: "30m",
   });
   return token;
 };
