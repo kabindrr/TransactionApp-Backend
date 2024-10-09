@@ -4,6 +4,8 @@ import cors from "cors";
 import morgan from "morgan";
 import userRouter from "./routers/userRouter.js";
 import { connectMongoDb } from "./config/mongoDb.js";
+import transactionRouter from "./routers/transactionRouter.js";
+import { auth } from "./middlewares/authMiddleware.js";
 const PORT = process.env.PORT || 8001;
 const app = express();
 
@@ -16,6 +18,7 @@ app.use(morgan("dev"));
 app.use(express.json());
 
 app.use("/api/v1/users", userRouter);
+app.use("/api/v1/transactions",auth, transactionRouter);
 
 app.get("/", (req, res) => {
   res.json({
