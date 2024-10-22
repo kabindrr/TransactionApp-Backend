@@ -19,7 +19,10 @@ transactionRouter.post("/", async (req, res, next) => {
           message: "Unable to add new transaction",
         });
   } catch (error) {
-    console.log(error);
+    res.json({
+      status: "error",
+      message: error.message,
+    });
   }
 });
 export default transactionRouter;

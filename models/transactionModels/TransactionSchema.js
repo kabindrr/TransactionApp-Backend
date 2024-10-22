@@ -14,7 +14,7 @@ const TransactionSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    tDate: {
+    tdate: {
       type: Date,
       required: true,
     },
