@@ -1,5 +1,8 @@
 import express from "express";
-import { insertTransaction } from "../models/transactionModels/TransactionModal.js";
+import {
+  getTransaction,
+  insertTransaction,
+} from "../models/transactionModels/TransactionModal.js";
 
 const transactionRouter = express.Router();
 
@@ -18,6 +21,25 @@ transactionRouter.post("/", async (req, res, next) => {
           status: "error",
           message: "Unable to add new transaction",
         });
+  } catch (error) {
+    res.json({
+      status: "error",
+      message: error.message,
+    });
+  }
+});
+
+transactionRouter.get("/", async (req, res) => {
+  try {
+    const { _id } = req.userInfo;
+    console.log(req.userInfo);
+
+    const transactions = await getTransaction(_id);
+    res.json({
+      status: "success",
+      message: "Here are the transactions",
+      transactions,
+    });
   } catch (error) {
     res.json({
       status: "error",

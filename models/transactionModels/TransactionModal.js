@@ -4,12 +4,15 @@ export const insertTransaction = (obj) => {
   return TransactionSchema(obj).save();
 };
 
-export const getTransaction = (email) => {
-  return TransactionSchema.findOne({ email });
+export const getTransaction = (userId) => {
+  if (!userId) {
+    throw new Error("_id is required!");
+  }
+  return TransactionSchema.find({ userId });
 };
 
 export const updateTransaction = (_id) => {
-  return TransactionSchema.findByIdAndUpdate({_id});
+  return TransactionSchema.findByIdAndUpdate({ _id });
 };
 
 export const deleteTransaction = (obj) => {
