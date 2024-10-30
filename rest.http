@@ -36,3 +36,9 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFAZ21haWwuY29t
 GET http://localhost:8001/api/v1/transactions
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFAZ21haWwuY29tIiwiaWF0IjoxNzI5NzE0ODEwLCJleHAiOjE3Mjk4MDEyMTB9._n_4XnILvTukm6gzUfWrfU-rCF56eyBg_tJPNOOGc-M
 
+###delete transactions
+DELETE http://localhost:8001/api/v1/transactions
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFAZ21haWwuY29tIiwiaWF0IjoxNzMwMzE5MDgyLCJleHAiOjE3MzA0MDU0ODJ9.Fxe3rq7HJbaSoAW3CwttUy4X3yI8-GCcQG3CCOdtKek
+
+["6721ef3dab57b922c917d7f9","6721f0c1ab57b922c917d80b"]

@@ -15,6 +15,6 @@ export const updateTransaction = (_id) => {
   return TransactionSchema.findByIdAndUpdate({ _id });
 };
 
-export const deleteTransaction = (obj) => {
-  return TransactionSchema.findByIdAndDelete(obj);
+export const deleteTransaction = (userId, idsToDelete) => {
+  return TransactionSchema.deleteMany({ userId, _id: { $in: idsToDelete } });
 };
